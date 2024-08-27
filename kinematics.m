@@ -1,3 +1,6 @@
+%% Stewart Platform Kinematic Model
+% Made by Benedictus Christo Geroda Cinun
+
 function [s] = kinematics(rp, rb, sigma, q)
 %% Parameters
 x = q(1);

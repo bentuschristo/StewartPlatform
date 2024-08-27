@@ -1,9 +1,13 @@
+%% Stewart Platform Kinematic Simulation
+% Made by Benedictus Christo Geroda Cinun
+
 clc
 clear variables
 close all
 
 syms x(t) y(t) z(t) phi(t) theta(t) psi(t)
 
+%% Parameters
 dt = 0.01; %step
 t_max = 5; %max time
 t = 0:dt:t_max; %iteration
@@ -12,28 +16,28 @@ rb = 0.2; %radius frame {B} in meter
 rp = 0.16; %radius frame {P} in meter
 sigma = deg2rad(15);
 
-%desired position
+%% Desired Position
 x = 0;
 y = 0;
 z = 0.37;
 
-%desired orientation
+%% Desired Orientation
 phi = deg2rad(5*sin(0.02*t*100)); %pitch
 theta = deg2rad(5*cos(0.02*t*100)); %roll
 psi = 0; %yaw
 
-
-
+%% Empty array to store values
 s1 = [];
 s2 = []; 
 s3 = []; 
 s4 = []; 
 s5 = []; 
 
-%make a video of the simulation
+%% Make a video of the simulation
 v = VideoWriter('KineSim.mp4','MPEG-4');
-
 open(v);
+
+%% Loop
 for i = 1:length(t)
     %if the position or the orientation changes , use the letter and add i
                                 %(example: x(i))
